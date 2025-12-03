@@ -23,4 +23,4 @@ jobs:
         working-directory: ./
 
       - name: Deploy to Server
-        run: cp target/app.jar /opt/backend-app/app.jar
+        run: cp target/app-1.0.jar /opt/backend-app/app-1.0.jar
