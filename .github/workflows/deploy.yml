@@ -20,6 +20,7 @@ jobs:
 
       - name: Build JAR
         run: mvn clean install
+        working-directory: ./
 
       - name: Deploy to Server
         run: cp target/app.jar /opt/backend-app/app.jar
