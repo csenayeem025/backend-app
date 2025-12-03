@@ -1,17 +1,25 @@
 name: Deploy Backend
- on:
-   push:
-     branches: [ "master" ]
+
+on:
+  push:
+    branches: [ "master" ]
 
 jobs:
- deploy:
-   runs-on: ubuntu-nayem
-     steps:
-       - name: Checkout Repo
-         uses: actions/checkout@v3
+  deploy:
+    runs-on: ubuntu-nayem
 
-       - name: Build JAR
-         run: mvn clean install
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
 
-       - name: Deploy to Server
-         run: cp target/app.jar /opt/backend-app/app.jar
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build JAR
+        run: mvn clean install
+
+      - name: Deploy to Server
+        run: cp target/app.jar /opt/backend-app/app.jar
