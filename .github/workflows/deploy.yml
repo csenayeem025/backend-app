@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-nayem
+    runs-on: self-hosted
 
     steps:
       - name: Checkout Repo
