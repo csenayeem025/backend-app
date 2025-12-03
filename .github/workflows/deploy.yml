@@ -1,0 +1,17 @@
+name: Deploy Backend
+ on:
+   push:
+     branches: [ "master" ]
+
+jobs:
+ deploy:
+   runs-on: ubuntu-nayem
+     steps:
+       - name: Checkout Repo
+         uses: actions/checkout@v3
+
+       - name: Build JAR
+         run: mvn clean install
+
+       - name: Deploy to Server
+         run: cp target/app.jar /opt/backend-app/app.jar
